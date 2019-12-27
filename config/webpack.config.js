@@ -437,6 +437,7 @@ module.exports = function (webpackEnv) {
               exclude: cssModuleRegex,
               use: getStyleLoaders({
                 importLoaders: 1,
+                modules: true,
                 sourceMap: isEnvProduction && shouldUseSourceMap,
               }),
               // Don't consider CSS imports dead code even if the
@@ -466,6 +467,7 @@ module.exports = function (webpackEnv) {
               use: getStyleLoaders(
                 {
                   importLoaders: 2,
+                  modules: true,
                   sourceMap: isEnvProduction && shouldUseSourceMap,
                 },
                 'sass-loader'
@@ -498,6 +500,7 @@ module.exports = function (webpackEnv) {
               use: getStyleLoaders(
                 {
                   importLoaders: 2,
+                  modules: true,
                   sourceMap: isEnvProduction && shouldUseSourceMap,
                 },
                 'less-loader'
@@ -516,28 +519,6 @@ module.exports = function (webpackEnv) {
                 'less-loader'
               )
             },
-
-            // // Less 解析配置
-            // {
-            //   test: /\.less$/,
-            //   use: [
-            //     require.resolve('style-loader'),
-            //     {
-            //       loader: require.resolve('css-loader'),
-            //       options: {
-            //         importLoaders: 1,
-            //       },
-            //     },
-            //     {
-            //       loader: require.resolve('less-loader') // compiles Less to CSS
-            //     }
-            //   ],
-            // },
-            // "file" loader makes sure those assets get served by WebpackDevServer.
-            // When you `import` an asset, you get its (virtual) filename.
-            // In production, they would get copied to the `build` folder.
-            // This loader doesn't use a "test" so it will catch all modules
-            // that fall through the other loaders.
             {
               loader: require.resolve('file-loader'),
               // Exclude `js` files to keep "css" loader working as it injects
