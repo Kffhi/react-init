@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import { Link } from 'dva/router';
 import { Button } from 'antd-mobile';
-import './style.less'
+import styles from './style.less'
 
 class AAA extends Component {
   render() {
     return (
       <div>
-        <p className="text">
+        <p className={styles.text}>
           AAA页
         </p>
         <Link to={'/aaa/bbb'}>
