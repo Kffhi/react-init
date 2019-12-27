@@ -2,12 +2,13 @@
 import React, { Component } from 'react';
 import { Link } from 'dva/router';
 import { Button } from 'antd';
- 
+import './style.less'
+
 class AAA extends Component {
   render() {
     return (
       <div>
-        <p>
+        <p className="text">
           AAA页
         </p>
         <Link to={'/aaa/bbb'}>
@@ -25,5 +26,5 @@ class AAA extends Component {
     );
   }
 }
- 
+
 export default AAA;
